@@ -20,7 +20,7 @@ async function checkImAdmin(message, user = message.client.user.jid) {
     return sonuc.includes(true);
 }
 
-Asena.addCommand({pattern: 'tagall ?(.*)', fromMe: true, desc: Lang.TAGALL_DESC }, (async (message, match) => {
+Asena.addCommand({pattern: 'tg ?(.*)', fromMe: true, desc: Lang.TAGALL_DESC }, (async (message, match) => {
     var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.ADMİN,MessageType.text);
 
@@ -43,7 +43,7 @@ Asena.addCommand({pattern: 'tagall ?(.*)', fromMe: true, desc: Lang.TAGALL_DESC 
             mesaj = '';
             grup['participants'].map(
                 async (uye) => {
-                    mesaj += '▫️ @' + uye.id.split('@')[0] + '\n';
+                    mesaj += '💋 @' + uye.id.split('@')[0] + '\n';
                     jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
                 }
             );
@@ -74,6 +74,7 @@ if (Config.LANG == 'ES') stag_dsc = 'Envía el mensaje de respuesta a todos los 
 if (Config.LANG == 'ML') stag_dsc = 'ഗ്രൂപ്പിലെ എല്ലാ അംഗങ്ങൾക്കും മറുപടി സന്ദേശം അയയ്ക്കുന്നു.'
 if (Config.LANG == 'ID') stag_dsc = 'Mengirim pesan balasan ke semua anggota dalam grup.'
 if (Config.LANG == 'PT') stag_dsc = 'Envia a mensagem respondida a todos os membros do grupo.'
+if (config.LANG == 'SI') stag_dsc = 'කණ්ඩායමේ සියලුම සාමාජිකයින්ට පිළිතුරු දුන් පණිවිඩය යවයි.'
 
 Asena.addCommand({pattern: 'stam$', fromMe: true, desc: stag_dsc }, (async (message, match) => {
     if (!message.reply_message) return await message.client.sendMessage(message.jid,SLang.NEED_REPLY, MessageType.text)
